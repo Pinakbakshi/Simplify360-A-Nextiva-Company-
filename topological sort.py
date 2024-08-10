@@ -71,94 +71,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-# from collections import defaultdict, deque
-
-# # Helper function to perform topological sorting
-# def topological_sort(graph, indegree):
-#     topo_order = []
-#     q = deque([node for node in indegree if indegree[node] == 0])
-    
-#     while q:
-#         node = q.popleft()
-#         topo_order.append(node)
-#         for neighbor in graph[node]:
-#             indegree[neighbor] -= 1
-#             if indegree[neighbor] == 0:
-#                 q.append(neighbor)
-                
-#     return topo_order
-
-# def calculate_times(tasks, dependencies):
-#     # Initialize graph, durations, and indegrees
-#     graph = defaultdict(list)
-#     indegree = {task: 0 for task in tasks}
-#     duration = {task: tasks[task] for task in tasks}
-    
-#     # Build the graph and calculate indegree
-#     for u, v in dependencies:
-#         graph[u].append(v)
-#         indegree[v] += 1
-    
-#     # Perform topological sort
-#     topo_order = topological_sort(graph, indegree)
-    
-#     # Initialize time dictionaries
-#     EST = {task: 0 for task in tasks}
-#     EFT = {task: 0 for task in tasks}
-    
-#     # Calculate EST and EFT
-#     for node in topo_order:
-#         EFT[node] = EST[node] + duration[node]
-#         for neighbor in graph[node]:
-#             EST[neighbor] = max(EST[neighbor], EFT[node])
-    
-#     # Calculate LFT and LST
-#     LFT = {task: float('inf') for task in tasks}
-#     LST = {task: float('inf') for task in tasks}
-    
-#     # The project completion time is determined by the maximum EFT
-#     max_EFT = max(EFT.values())
-    
-#     for task in tasks:
-#         if not graph[task]:  # Leaf node
-#             LFT[task] = max_EFT
-    
-#     # Process in reverse topological order
-#     for node in reversed(topo_order):
-#         LST[node] = LFT[node] - duration[node]
-#         for neighbor in graph[node]:
-#             LFT[node] = min(LFT[node], LST[neighbor])
-    
-#     # The latest finish time is the maximum LFT
-#     max_LFT = max(LFT.values())
-    
-#     return max_EFT, max_LFT
-
-# # Example usage:
-# tasks = {
-#     'T_START': 0,
-#     'A': 4,
-#     'B': 3,
-#     'C': 2,
-#     'D': 5,
-#     'E': 3,
-#     'F': 2
-# }
-
-# dependencies = [
-#     ('T_START', 'A'),
-#     ('A', 'B'),
-#     ('A', 'C'),
-#     ('B', 'D'),
-#     ('C', 'D'),
-#     ('D', 'E'),
-#     ('E', 'F')
-# ]
-
-# earliest_time, latest_time = calculate_times(tasks, dependencies)
-# print(f"Earliest time all tasks will be completed: {earliest_time}")
-# print(f"Latest time all tasks will be completed: {latest_time}")
-
-
+# Overall Time Complexity for Each Function:
+# topological_sort: O(V + E)
+# calculate_times: O(V + E)
+# main: O(V + E)
+# Overall Space Complexity for Each Function:
+# topological_sort: O(V + E)
+# calculate_times: O(V + E)
+# main: O(V + E)
