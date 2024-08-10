@@ -59,3 +59,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Time Complexity:
+# Building the graph takes O(V + E), where V is the number of tasks and E is the number of dependencies.
+# topological sorting step takes O(V + E), as we process each task and edge exactly once.
+# Calculate Earliest Start Time (EST) and Earliest Finish Time (EFT) step takes O(V + E) since we're iterating over each task and its dependencies.
+# Calculate Latest Finish Time (LFT) and Latest Start Time (LST) step also takes O(V + E) for the same reasons as the EST/EFT calculation.
+# Return Results is O(V) since we’re iterating over the tasks to get these values.
+# Time Complexity Summary
+
+# Space Complexity:
+# The space complexity is dominated by the adjacency list (graph), which is O(V + E), along with the space for the dictionaries. Thus, the overall space complexity is O(V + E).
